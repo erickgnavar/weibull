@@ -1,7 +1,7 @@
 # Django settings for weibull project.
 
 import dj_database_url
-
+from os import path
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -9,6 +9,8 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
+
+PROJECT_ROOT = path.dirname(path.dirname(__file__))
 
 MANAGERS = ADMINS
 
@@ -108,9 +110,7 @@ ROOT_URLCONF = 'weibull.urls'
 WSGI_APPLICATION = 'weibull.wsgi.application'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    path.join(PROJECT_ROOT, 'templates')
 )
 
 INSTALLED_APPS = (
