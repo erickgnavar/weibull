@@ -18,14 +18,17 @@ def home(request):
             initial = data['initial']
             repetitions = data['repetitions']
             function = data['function']
+            context['initial'] = str(initial)
             values = None
             if function == 'DENSITY':
-                values = weibull(alpha, beta, increment, initial, repetitions, 1)
+                values, x_max, y_max = weibull(alpha, beta, increment, initial, repetitions, 1)
             elif function == 'LOWER_CUMULATIVE':
-                values = weibull(alpha, beta, increment, initial, repetitions, 2)
+                values, x_max, y_max = weibull(alpha, beta, increment, initial, repetitions, 2)
             elif function == 'UPPER_CUMULATIVE':
-                values = weibull(alpha, beta, increment, initial, repetitions, 3)
+                values, x_max, y_max = weibull(alpha, beta, increment, initial, repetitions, 3)
             context['data'] = values
+            context['x_max'] = x_max
+            context['y_max'] = y_max
     else:
         form = WeibullForm()
     context['form'] = form
@@ -36,14 +39,18 @@ def weibull(alpha, beta, increment=0.05, initial=0, repetitions=100, function=1)
     data = []
     i = 0
     x = initial
+    y_max = 0
     while i < repetitions:
+        y = calculate(x, alpha, beta, function)
+        if y > y_max:
+            y_max = y
         data.append({
-            'x': x,
-            'y': calculate(x, alpha, beta, function)
+            'x': str(x),
+            'y': str(y)
         })
         x += increment
         i += 1
-    return data
+    return data, str(x), str(y_max)
 
 
 def calculate(x, alpha, beta, function):
