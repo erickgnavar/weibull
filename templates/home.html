@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}Weibull App{% endblock title %}
+{% block extrastyle %}
+    <style type="text/css">
+        #weibull-form {
+            background: url({{ STATIC_URL }}img/water.png) no-repeat right;
+        }
+    </style>
+{% endblock extrastyle %}
 {% block container %}
 {% load crispy_forms_tags %}
-    <div class="span4">
+    <div id="weibull-form" class="span4">
         <form action="" method='post'>
             {% csrf_token %}
             {{ form|crispy }}
