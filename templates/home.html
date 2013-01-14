@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}Weibull App{% endblock title %}
 {% block container %}
-{% load crispy_forms_tags %}
+{# {% load crispy_forms_tags %} #}
     <!--<div class="hero-unit">
         <h1>Weibull App</h1>
     </div>-->
     <div class="span4">
         <form action="" method='post'>
             {% csrf_token %}
-            {{ form|crispy }}
+            {# {{ form|crispy }} #}
+            {{ form }}
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Generar Tabla</button>
                 <button href="/" type="reset" class="btn">Resetar</button>
