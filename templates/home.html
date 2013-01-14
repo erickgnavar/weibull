@@ -1,11 +1,19 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-<head>
-    <meta charset="UTF-8">
-    <title>Weibull App</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Weibull App{% endblock title %}
+{% block container %}    
     <h1>Weibull App</h1>
-    <script type="text/javascript" src="http://erickxls.appspot.com/js/raphael.min.js"></script>
-</body>
-</html>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <th>X</th>
+            <th>Weibull Distribution</th>
+        </thead>
+        <tbody>
+        {% for item in data %}
+            <tr>
+                <td>{{ item.x }}</td>
+                <td>{{ item.y }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock container %}
