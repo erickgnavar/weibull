@@ -4,6 +4,17 @@ from django import forms
 
 class WeibullForm(forms.Form):
 
+    TYPE_CHOICES = (
+        ('DENSITY', 'Probabilidad de Densidad'),
+        ('UPPER_CUMULATIVE', 'Distribucion Acumulada Superior'),
+        ('LOWER_CUMULATIVE', 'Distribucion Acumulada Inferior')
+    )
+
+    function = forms.ChoiceField(
+        label='Seleccione funcion',
+        choices=TYPE_CHOICES,
+        widget=forms.RadioSelect(),
+    )
     alpha = forms.FloatField(
         label='Alfa'
     )
