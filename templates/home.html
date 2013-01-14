@@ -2,21 +2,20 @@
 {% block title %}Weibull App{% endblock title %}
 {% block extrastyle %}
     <style type="text/css">
-        ul {
+        /*ul {
             list-style: none;
-        }
+        }*/
     </style>
 {% endblock extrastyle %}
 {% block container %}
-{# {% load crispy_forms_tags %} #}
+{% load crispy_forms_tags %}
     <!--<div class="hero-unit">
         <h1>Weibull App</h1>
     </div>-->
     <div class="span4">
         <form action="" method='post'>
             {% csrf_token %}
-            {# {{ form|crispy }} #}
-            {{ form }}
+            {{ form|crispy }}
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Generar Tabla</button>
                 <button href="/" type="reset" class="btn">Resetar</button>
