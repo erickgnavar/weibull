@@ -5,6 +5,9 @@
         #weibull-form {
             background: url({{ STATIC_URL }}img/water.png) no-repeat right;
         }
+        #chart {
+            height: 400px;
+        }
     </style>
 {% endblock extrastyle %}
 {% block container %}
@@ -39,7 +42,7 @@
                     {% for item in data %}
                         <tr>
                             <td>{{ item.x }}</td>
-                            <td>{{ item.y }}</td>
+                            <td>{{ item.y|slice:':10' }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
