@@ -1,3 +1,4 @@
 weibull
 =======
-Aplicación de simulacion de métricas metereologicas en base a data recolectada de años pasados y en distintas estaciones de estudio.
+Aplicación para mostar la tabla de valores y gráfica de comportamiento de la distribución estadística de weibull
+App en funcionamiento en [Heroku](http://weibull.herokuapp.com/)
